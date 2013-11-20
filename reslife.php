@@ -1,0 +1,93 @@
+<?php
+/**
+ * @package Hello_Dolly
+ * @version 1.6
+ */
+/*
+Plugin Name: Wheaton ResLife
+Plugin URI: http://wordpress.org/plugins/hello-dolly/
+Description:
+Author: Tri Nguyen
+Version: 0.1
+Author URI: http://tridnguyen.com/
+*/
+
+if ( ! defined( 'WR_PLUGIN_NAME' ) )
+	define( 'WR_PLUGIN_NAME', 'Wheaton ResLife' );
+if ( ! defined( 'WHEATON_RESLIFE' ) )
+	define( 'WHEATON_RESLIFE', true );
+
+/*
+	Notify user to install Super CPT plugin
+*/
+function supercpt_notice() {
+	if ( current_user_can ( 'install_plugins' ) )
+		echo '<div class="error"><p>Plugin \'Super CPT\' is required for ' . WR_PLUGIN_NAME . '. Please <a href="http://wordpress.org/plugins/super-cpt/">install</a> it.</p></div>';
+}
+
+/*
+	Initialize Custom Post Types required for this plugin, including
+	reslife-staff and reslife-building
+*/
+function reslife_cpt_init() {
+	if ( ! class_exists( 'Super_Custom_Post_Type' ) ) {
+		add_action( 'admin_notices', 'supercpt_notice' );
+		return;
+	}
+
+	$staff = new Super_Custom_Post_Type( 'reslife-staff', 'Staff Member', 'Staff', array(
+		'supports' => array( 'title', 'thumbnail', 'editor' )
+	));
+	$staff->set_icon( 'group' );
+	$staff->add_meta_box( array(
+		'id'	=> 'staff_info',
+		'title'	=> 'Staff Information',
+		'fields'	=> array(
+			'email'	=> array(
+				'type'	=> 'email',
+				'default'	=> ''
+			),
+			'title'	=> array(
+				'type'	=> 'text',
+				'default'	=> ''
+			)
+		)
+	));
+	$building = new Super_Custom_Post_Type( 'reslife-building', 'Building', 'Buildings', array(
+		'supports' => array( 'title', 'editor', 'thumbnail')
+	));
+	$building->set_icon( 'building' );
+	$building->add_meta_box( array(
+		'id'	=> 'building_info',
+		'title'	=> 'Building Information',
+		'fields'	=> array(
+		)
+	));
+
+	$quad = new Super_Custom_Taxonomy( 'reslife-quad', 'Quad', 'Quads', 'category' );
+	$quad->connect_post_types( array( 'reslife-staff', 'reslife-building' ) );
+
+	$attributes = new Super_Custom_Taxonomy( 'reslife-attributes', 'Attribute', 'Attributes', 'category' );
+	$attributes->connect_post_types( 'reslife-building' );
+}
+
+add_action( 'after_setup_theme', 'reslife_cpt_init' );
+
+/*
+	Create a 2-way connection between staff and building
+*/
+function reslife_connect_staff_buidling() {
+	p2p_register_connection_type( array(
+		'name' => 'reslife-building-to-staff',
+		'from' => 'reslife-building',
+		'to'	=> 'reslife-staff',
+		'reciprocal'	=> true,
+		'admin_box'	=> array(
+			'show'	=> 'any',
+			'context'	=> 'advanced'
+		)
+	) );
+}
+add_action( 'p2p_init', 'reslife_connect_staff_buidling' );
+
+?>
