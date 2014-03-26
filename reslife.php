@@ -30,7 +30,7 @@ function supercpt_notice() {
 */
 function p2p_notice() {
 	if ( current_user_can ( 'install_plugins' ) )
-		echo '<div class="error"><p>Plugin \'Posts 2 Posts\' is required for ' . WR_PLUGIN_NAME . '. Please <a href="http://wordpress.org/plugins/super-cpt/">install</a> it.</p></div>';
+		echo '<div class="error"><p>Plugin \'Posts 2 Posts\' is required for ' . WR_PLUGIN_NAME . '. Please <a href="http://wordpress.org/plugins/posts-to-posts/">install</a> it.</p></div>';
 }
 
 /*
@@ -38,13 +38,21 @@ function p2p_notice() {
 	reslife-staff and reslife-building
 */
 function reslife_cpt_init() {
+	$supercpt_exists = false;
+	$p2p_exists = false;
 	if ( ! class_exists( 'Super_Custom_Post_Type' ) ) {
 		add_action( 'admin_notices', 'supercpt_notice' );
-		return;
+	} else {
+		$supercpt_exists = true;
 	}
 
-	if ( ! class_exists( 'P2P_PLUGIN_VERSION' ) ) {
+	if ( P2P_PLUGIN_VERSION == 'P2P_PLUGIN_VERSION' ) {
 		add_action( 'admin_notices', 'p2p_notice' );
+	} {
+		$p2p_exists = true;
+	}
+
+	if ( ! $supercpt_exists || ! $p2p_exists ) {
 		return;
 	}
 
