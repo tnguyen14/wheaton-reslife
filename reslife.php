@@ -26,12 +26,25 @@ function supercpt_notice() {
 }
 
 /*
+	Notify user to install Posts 2 Posts plugin
+*/
+function p2p_notice() {
+	if ( current_user_can ( 'install_plugins' ) )
+		echo '<div class="error"><p>Plugin \'Posts 2 Posts\' is required for ' . WR_PLUGIN_NAME . '. Please <a href="http://wordpress.org/plugins/super-cpt/">install</a> it.</p></div>';
+}
+
+/*
 	Initialize Custom Post Types required for this plugin, including
 	reslife-staff and reslife-building
 */
 function reslife_cpt_init() {
 	if ( ! class_exists( 'Super_Custom_Post_Type' ) ) {
 		add_action( 'admin_notices', 'supercpt_notice' );
+		return;
+	}
+
+	if ( ! class_exists( 'P2P_PLUGIN_VERSION' ) ) {
+		add_action( 'admin_notices', 'p2p_notice' );
 		return;
 	}
 
