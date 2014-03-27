@@ -1,11 +1,11 @@
 <?php
 /**
- * @package Hello_Dolly
- * @version 1.6
+ * @package Wheaton_ResLife
+ * @version 0.1
  */
 /*
 Plugin Name: Wheaton ResLife
-Plugin URI: http://wordpress.org/plugins/hello-dolly/
+Plugin URI: http://tridnguyen.com/
 Description:
 Author: Tri Nguyen
 Version: 0.1
