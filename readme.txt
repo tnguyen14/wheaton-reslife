@@ -36,6 +36,9 @@ For now, they can be added as galleries in the main editor.
 
 == Installation ==
 
+== Development Guide ==
+https://wordpress.org/plugins/about/svn/
+http://danielbachhuber.com/2012/09/30/git-in-my-subversion/
 
 == Frequently Asked Questions ==
 
