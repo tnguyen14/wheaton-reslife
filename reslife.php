@@ -77,11 +77,11 @@ function reslife_cpt_init() {
 					'SR' => 'Senior Resident (SR)'
 				)
 			),
-			'classyear' => (
+			'classyear' => array(
 				'type' => 'text',
 				'default' => ''
 			),
-			'major' => (
+			'major' => array(
 				'type' => 'text',
 				'default' => ''
 			)
