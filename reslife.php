@@ -71,7 +71,7 @@ function reslife_cpt_init() {
 			'title'	=> array(
 				'type'	=> 'select',
 				'options'	=> array(
-					'AC' => 'Area Coordinator',
+					'AC' => 'Area Coordinator (AC)',
 					'RA' => 'Residential Advisor (RA)',
 					'HR' => 'Head Resident (HR)',
 					'SR' => 'Senior Resident (SR)'
