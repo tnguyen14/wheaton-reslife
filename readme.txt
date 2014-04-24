@@ -3,7 +3,7 @@ Contributors: tnguyen14
 Tags: residential life, dorm, staff, building
 Requires at least: 3.0.1
 Tested up to: 3.9
-Stable tag: 0.1.2
+Stable tag: 0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -59,7 +59,7 @@ http://danielbachhuber.com/2012/09/30/git-in-my-subversion/
 
 == Changelog ==
 
-= 0.1.2 =
+= 0.2 =
 Add meta fields for staff major and classyear.
 Convert staff title into select field.
 
