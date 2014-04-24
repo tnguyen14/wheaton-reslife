@@ -69,8 +69,8 @@ function reslife_cpt_init() {
 				'default'	=> ''
 			),
 			'title'	=> array(
-				'type'	=> 'text',
-				'default'	=> ''
+				'type'	=> 'select',
+				'options'	=> array('residential advisor', 'head resident', 'senior resident')
 			)
 		)
 	));
