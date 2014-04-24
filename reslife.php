@@ -70,7 +70,20 @@ function reslife_cpt_init() {
 			),
 			'title'	=> array(
 				'type'	=> 'select',
-				'options'	=> array('residential advisor', 'head resident', 'senior resident')
+				'options'	=> array(
+					'AC' => 'Area Coordinator',
+					'RA' => 'Residential Advisor (RA)',
+					'HR' => 'Head Resident (HR)',
+					'SR' => 'Senior Resident (SR)'
+				)
+			),
+			'classyear' => (
+				'type' => 'text',
+				'default' => ''
+			),
+			'major' => (
+				'type' => 'text',
+				'default' => ''
 			)
 		)
 	));
