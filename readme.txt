@@ -12,13 +12,16 @@ Provide Custom Post Type support and other functionalities for Wheaton College R
 == Description ==
 
 ## Dependencies
+
 This plugin requires [Super CPT](http://wordpress.org/plugins/super-cpt/) and [Posts 2 Posts](http://wordpress.org/plugins/posts-to-posts/) plugins.
 
 ## Custom Post Types
+
 * Staff
 * Building
 
 ## Fields
+
 ### Staff
 * Description (default content editor)
 * Email
@@ -30,6 +33,7 @@ This plugin requires [Super CPT](http://wordpress.org/plugins/super-cpt/) and [P
 * Description (default content editor)
 
 ## Taxonomies
+
 ### Quad
 For both staff and buildings
 
@@ -37,6 +41,7 @@ For both staff and buildings
 For buildings
 
 ## Future
+
 Super CPT currently does not support repeatable field, which makes it difficult to have building images and floor plans as separate custom fields.
 For now, they can be added as galleries in the main editor.
 

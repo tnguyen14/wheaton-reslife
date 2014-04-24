@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Wheaton_ResLife
- * @version 0.1
+ * @version 0.1.2
  */
 /*
 Plugin Name: Wheaton ResLife
-Plugin URI: http://tridnguyen.com/
-Description:
+Plugin URI: http://wordpress.org/plugins/wheaton-reslife
+Description: Provide Custom Post Type support and other functionalities for Wheaton College Residential Life page
 Author: Tri Nguyen
-Version: 0.1
+Version: 0.1.2
 Author URI: http://tridnguyen.com/
 */
 
