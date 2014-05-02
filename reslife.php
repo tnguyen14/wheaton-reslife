@@ -85,7 +85,7 @@ function reslife_cpt_init() {
 				'type' => 'text',
 				'default' => ''
 			),
-			'residents' => (
+			'residents' => array(
 				'type' => 'text',
 				'default' => ''
 			)
